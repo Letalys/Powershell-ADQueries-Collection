@@ -14,7 +14,7 @@
 #requires -version 4
 #Requires -Modules ActiveDirectory
 
-Function Get-ADAllUsersAccount-Enabled-PwdExpired{
+Function Get-ADUsers-Enabled-PwdExpired{
     Param($SearchBase)
     $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase $SearchBase -Properties PasswordExpired | Select-Object UserPrincipalName,PasswordExpired | Where-Object {$_.PasswordExpired -eq $true}
     return $ADQuery
@@ -22,8 +22,8 @@ Function Get-ADAllUsersAccount-Enabled-PwdExpired{
 
 Try{
     #You can use Wildcard
-    Get-ADAllUsersAccount-Enabled -SearchBase "<OU=,DC=,DC=>"  | Measure-Object
-    Get-ADAllUsersAccount-Enabled -SearchBase "<OU=,DC=,DC=>"  | Format-Table
+    Get-ADUsers-Enabled-PwdExpired -SearchBase "<OU=,DC=,DC=>"  | Measure-Object
+    Get-ADUsers-Enabled-PwdExpired -SearchBase "<OU=,DC=,DC=>"  | Format-Table
     Exit 0
 }catch{
     Write-Error "Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"

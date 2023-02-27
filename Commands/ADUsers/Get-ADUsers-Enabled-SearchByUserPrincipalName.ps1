@@ -15,15 +15,15 @@
 #requires -version 4
 #Requires -Modules ActiveDirectory
 
-Function Get-ADAllUsersAccount-Enabled{
+Function Get-ADUsers-Enabled-SearchByUserPrincipalName{
     Param($SearchBase,$UserPrincipalName)
     $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true) -and (UserPrincipalName -like "$UserPrincipalName")} -SearchBase $SearchBase 
     return $ADQuery
 }
 
 Try{
-    Get-ADAllUsersAccount-Enabled -SearchBase "<OU=,DC=,DC=>" -UserPrincipalName "<*UserPrincipalName*>" | Measure-Object
-    Get-ADAllUsersAccount-Enabled -SearchBase "<OU=,DC=,DC=>" -UserPrincipalName "<*UserPrincipalName*>" | Format-Table
+    Get-ADUsers-Enabled-SearchByUserPrincipalName -SearchBase "<OU=,DC=,DC=>" -UserPrincipalName "<*UserPrincipalName*>" | Measure-Object
+    Get-ADUsers-Enabled-SearchByUserPrincipalName -SearchBase "<OU=,DC=,DC=>" -UserPrincipalName "<*UserPrincipalName*>" | Format-Table
     Exit 0
 }catch{
     Write-Error "Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
