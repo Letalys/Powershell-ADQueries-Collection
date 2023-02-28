@@ -21,7 +21,6 @@ Function Get-ADUsers-Enabled-PwdExpired{
 }
 
 Try{
-    #You can use Wildcard
     Get-ADUsers-Enabled-PwdExpired -SearchBase "<OU=,DC=,DC=>"  | Measure-Object
     Get-ADUsers-Enabled-PwdExpired -SearchBase "<OU=,DC=,DC=>"  | Format-Table
     Exit 0

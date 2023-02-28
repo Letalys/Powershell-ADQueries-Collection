@@ -3,7 +3,7 @@
 	Get all user's enabled account searh by SamaccountName
 .INPUTS
 	SearchBase : Set the Active Directory search path
-    UserPrincipalName : Set the UserprincipalName to search, you can use Wildcard
+    Samaccountname : Set the UserprincipalName to search, you can use Wildcard
 .NOTES
   Version:        1.0
   Author:         Letalys
