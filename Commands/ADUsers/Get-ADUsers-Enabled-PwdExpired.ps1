@@ -16,7 +16,7 @@
 
 Function Get-ADUsers-Enabled-PwdExpired{
     Param($SearchBase)
-    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase $SearchBase -Properties PasswordExpired | Select-Object UserPrincipalName,PasswordExpired | Where-Object {$_.PasswordExpired -eq $true}
+    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase" -Properties PasswordExpired | Select-Object UserPrincipalName,PasswordExpired | Where-Object {$_.PasswordExpired -eq $true}
     return $ADQuery
 }
 

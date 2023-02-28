@@ -1,12 +1,12 @@
 <#
 .SYNOPSIS
-	Get all user's enabled account
+	Get all user's enabled and locked account
 .INPUTS
 	SearchBase : Set the Active Directory search path
 .NOTES
   Version:        1.0
   Author:         Letalys
-  Creation Date:  27/02/2023
+  Creation Date:  28/02/2023
   Purpose/Change: Initial script development
 .LINK
     Author : Letalys (https://github.com/Letalys)
@@ -16,7 +16,7 @@
 
 Function Get-ADUsers-Enabled{
     Param($SearchBase)
-    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase"
+    $ADQuery = $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase" -Properties LockedOut | Select-Object-Object UserPrincipalName,LockedOut |Where-Object {$_.LockedOut -eq $true}
     return $ADQuery
 }
 

@@ -17,7 +17,7 @@
 
 Function Get-ADUsers-Enabled-SearchByUserPrincipalName{
     Param($SearchBase,$UserPrincipalName)
-    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true) -and (UserPrincipalName -like "$UserPrincipalName")} -SearchBase $SearchBase 
+    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true) -and (UserPrincipalName -like "$UserPrincipalName")} -SearchBase "$SearchBase"
     return $ADQuery
 }
 
