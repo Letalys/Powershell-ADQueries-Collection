@@ -14,15 +14,15 @@
 #requires -version 4
 #Requires -Modules ActiveDirectory
 
-Function Get-ADUsers-Enabled{
+Function Get-ADUsers-Enabled-LockedAccount{
     Param($SearchBase)
-    $ADQuery = $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase" -Properties LockedOut | Select-Object-Object UserPrincipalName,LockedOut |Where-Object {$_.LockedOut -eq $true}
+    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase" -Properties LockedOut | Select-Object-Object UserPrincipalName,LockedOut |Where-Object {$_.LockedOut -eq $true}
     return $ADQuery
 }
 
 Try{
-    Get-ADUsers-Enabled -SearchBase "<OU=,DC=,DC=>" | Measure-Object
-    Get-ADUsers-Enabled -SearchBase "<OU=,DC=,DC=>" | Format-Table
+    Get-ADUsers-Enabled-LockedAccount -SearchBase "<OU=,DC=,DC=>" | Measure-Object
+    Get-ADUsers-Enabled-LockedAccount -SearchBase "<OU=,DC=,DC=>" | Format-Table
     Exit 0
 }catch{
     Write-Error "Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
