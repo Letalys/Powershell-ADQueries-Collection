@@ -16,7 +16,7 @@
 
 Function Get-ADUsers-Enabled-AccountExpired{
     Param($SearchBase)
-    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase" -Properties accountexpires | Where-Object {([DateTime]::FromFileTime($_.accountexpires)  -lt (get-date))}
+    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase" -Properties accountexpires | Where-Object {$_.accountexpires -lt (get-date).ToFileTime()}
     return $ADQuery
 }
 
