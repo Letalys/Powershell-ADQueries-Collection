@@ -24,7 +24,7 @@ Function Get-ADUsers-Disabled-LastChanged-MoreThanYear{
 
 Try{
     Get-ADUsers-Disabled-LastChanged-MoreThanYear -SearchBase "<OU=,DC=,DC=>" -SelectYear "<Year>" | Measure-Object
-    Get-ADUsers-Disabled-LastChanged-MoreThanYear -SearchBase "<OU=,DC=,DC=>" | Format-Table UserPrincipalName,WhenChanged
+    Get-ADUsers-Disabled-LastChanged-MoreThanYear -SearchBase "<OU=,DC=,DC=>" -SelectYear "<Year>" | Format-Table UserPrincipalName,WhenChanged
     Exit 0
 }catch{
     Write-Error "Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
