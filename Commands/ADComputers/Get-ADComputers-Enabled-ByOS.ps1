@@ -18,7 +18,7 @@ Function Get-ADComputers-Enabled-ByOS{
     Param($SearchBase)
     $ADQuery = Get-ADComputer -Filter {(Enabled -eq $true)} -Properties operatingSystem,OperatingSystemVersion -SearchBase "$SearchBase" | 
                 Group-Object -Property operatingSystem,OperatingSystemVersion | 
-                Select-Object operatingSystem,OperatingSystemVersion,Count | Sort-Object operatingSystem,OperatingSystemVersion
+                Select-Object Name,Count | Sort-Object Name
     return $ADQuery
 }
 
