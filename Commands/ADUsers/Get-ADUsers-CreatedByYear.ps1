@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-	Get all user's account created in a year
+	Get all user's account created in a year, grouped by month
 .INPUTS
 	SearchBase : Set the Active Directory search path
     SelectedYear : Set the Year for stats
@@ -19,12 +19,12 @@ Function Get-ADUsers-CreatedByYear{
     Param($SearchBase,$SelectedYear)
     $ADQuery = Get-ADUser -filter * -Properties whenCreated -SearchBase "$SearchBase" | 
                 Where-Object {$_.whenCreated.Year -eq $SelectedYear} |
-                Group-Object {$_.whenCreated.Month} 
+                Group-Object {$_.whenCreated.Month} | Select-Object Count,Name
     return $ADQuery
 }
 
 Try{
-    Get-ADUsers-CreatedByYear -SearchBase "<OU=,DC=,DC=>" | Format-Table -AutoSize
+    Get-ADUsers-CreatedByYear -SearchBase "<OU=,DC=,DC=>" -SelectedYear "<Year>" | Format-Table -AutoSize
     Exit 0
 }catch{
     Write-Error "Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
