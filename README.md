@@ -10,7 +10,7 @@ These scripts have been formatted into functions to facilitate their use and giv
 |Script|Description|
 |-|-|
 |[Get-ADUsers-CreatedByYear.ps1](./Commands/ADUsers/Get-ADUsers-CreatedByYear.ps1)|Get all user's disabled account|
-|[Get-ADUsers-Disabled-LastChanged-MoreThanYear.ps1](./Commands/ADUsers/Get-ADUsers-Disabled-LastChanged-MoreThanYear.ps1)|Get all user's disabled where last change more than a selected Date|
+|[Get-ADUsers-Disabled-LastChanged-MoreThanYear.ps1](./Commands/ADUsers/Get-ADUsers-Disabled-LastChanged-MoreThanYear.ps1)|Get all user's disabled where last change more than a selected year|
 |[Get-ADUsers-Disabled.ps1](./Commands/ADUsers/Get-ADUsers-Disabled.ps1)|Get all user's disabled account|
 |[Get-ADUsers-Enabled-AccountExpired.ps1](./Commands/ADUsers/Get-ADUsers-Enabled-AccountExpired.ps1)|Get all user's disabled where account is expired|
 |[Get-ADUsers-Enabled-LastLogon-Never.ps1](./Commands/ADUsers/Get-ADUser-Enabled-LastLogon-Never.ps1)|Get all user's enabled never been logged on|
