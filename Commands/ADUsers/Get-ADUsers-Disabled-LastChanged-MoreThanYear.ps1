@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-	Get all user's disabled where last change more than a selected Date
+	Get all user's disabled where last change more than a selected year
 .INPUTS
 	SearchBase : Set the Active Directory search path
     SelectedYear : Choose the starting year to obtain the accounts of previous years
