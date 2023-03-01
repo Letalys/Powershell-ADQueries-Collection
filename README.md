@@ -32,6 +32,8 @@ These scripts have been formatted into functions to facilitate their use and giv
 |Script|Description|
 |-|-|
 |[Get-ADComputers-Disabled.ps1](./Commands/ADComputers/Get-ADComputers-Disabled.ps1)|Get all computers disabled account|
+|[Get-ADComputers-Enabled-ByOS.ps1](./Commands/ADComputers/Get-ADComputers-Enabled-ByOS.ps1)|Get all computers Grouped by OS and OS Version|
+|[Get-ADComputers-Enabled-SearchByCN.ps1](./Commands/ADComputers/Get-ADComputers-Enabled-SearchByCN.ps1)|Get all computers enabled with search by CN|
 |[Get-ADComputers-Enabled.ps1](./Commands/ADComputers/Get-ADComputers-Enabled.ps1)|Get all computers enabled account|
 
 ## 🔗 Links
