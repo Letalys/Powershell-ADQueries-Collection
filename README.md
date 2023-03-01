@@ -9,6 +9,8 @@ These scripts have been formatted into functions to facilitate their use and giv
 
 |Script|Description|
 |-|-|
+|[Get-ADUser-Enabled-LastLogon-Never.ps1](./Commands/ADUsers/Get-ADUser-Enabled-LastLogon-Never.ps1)|Get all user's enabled never been logged on|
+|[Get-ADUser-Enabled-PwdLastSet-MoreThanDate.ps1](./Commands/ADUsers/Get-ADUser-Enabled-PwdLastSet-MoreThanDate.ps1)|Get all user's enabled account where password was changed anterior than selected date|
 |[Get-ADUsers-CreatedByYear.ps1](./Commands/ADUsers/Get-ADUsers-CreatedByYear.ps1)|Get all user's disabled account|
 |[Get-ADUsers-Disabled-LastChanged-MoreThanYear.ps1](./Commands/ADUsers/Get-ADUsers-Disabled-LastChanged-MoreThanYear.ps1)|Get all user's disabled where last change more than a selected Date|
 |[Get-ADUsers-Disabled.ps1](./Commands/ADUsers/Get-ADUsers-Disabled.ps1)|Get all user's disabled account|

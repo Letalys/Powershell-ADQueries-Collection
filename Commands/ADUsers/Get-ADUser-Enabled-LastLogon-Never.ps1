@@ -1,0 +1,31 @@
+<#
+.SYNOPSIS
+	Get all user's enabled never been logged on
+.INPUTS
+	SearchBase : Set the Active Directory search path
+.NOTES
+  Version:        1.0
+  Author:         Letalys
+  Creation Date:  28/02/2023
+  Purpose/Change: Initial script development
+.LINK
+    Author : Letalys (https://github.com/Letalys)
+#>
+#requires -version 4
+#Requires -Modules ActiveDirectory
+
+Function Get-ADUsers-Enabled-Lastlogon-Never{
+    Param($SearchBase)
+    $ADQuery = Get-ADUSer -Filter {(Enabled -eq $true)} -SearchBase "$SearchBase" -Properties lastlogon |  
+                Where-Object {([DateTime]::FromFileTimeutc($_.lastlogon).Year -eq 1601)} 
+    return $ADQuery
+}
+
+Try{
+    Get-ADUsers-Enabled-Lastlogon-Never -SearchBase "<OU=,DC=,DC=>" | Measure-Object
+    Get-ADUsers-Enabled-Lastlogon-Never -SearchBase "<OU=,DC=,DC=>" | Format-Table
+    Exit 0
+}catch{
+    Write-Error "Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
+    Exit 1
+}
