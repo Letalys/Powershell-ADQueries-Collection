@@ -21,12 +21,12 @@ Function Get-ADUsers-Enabled-PwdLastSet-MoreThanDate{
 
     $D1 = Get-Date($Date1)
 
-    $ADQuery = Get-AdUser -filter {(Enabled -eq $true) -and (PasswordLastSet -le $D1)  -and (pwdlastset -gt 0)} -SearchBase "$searchbase" -Properties PasswordLastSet| Select-Object-Object UserPrincipalName,PasswordLastSet,pwdLastSet
+    $ADQuery = Get-AdUser -filter {(Enabled -eq $true) -and (PasswordLastSet -le $D1)  -and (pwdlastset -gt 0)} -SearchBase "$searchbase" -Properties PasswordLastSet| Select-Object UserPrincipalName,PasswordLastSet,pwdLastSet
     return $ADQuery
 }
 
 Try{
-    Get-ADUsers-Enabled-PwdLastSet-Betw2Date -SearchBase "<OU=,DC=,DC=>"  -Date1 "<StartDate>" | Measure-Object
+    Get-ADUsers-Enabled-PwdLastSet-MoreThanDate -SearchBase "<OU=,DC=,DC=>"  -Date1 "<StartDate>" | Measure-Object
     Get-ADUsers-Enabled-PwdLastSet-Betw2Date -SearchBase "<OU=,DC=,DC=>"  -Date1 "<StartDate>" | Format-Table
     Exit 0
 }catch{
