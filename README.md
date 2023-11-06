@@ -36,6 +36,14 @@ These scripts have been formatted into functions to facilitate their use and giv
 |[Get-ADComputers-Enabled-SearchByCN.ps1](./Commands/ADComputers/Get-ADComputers-Enabled-SearchByCN.ps1)|Get all computers enabled with search by CN|
 |[Get-ADComputers-Enabled.ps1](./Commands/ADComputers/Get-ADComputers-Enabled.ps1)|Get all computers enabled account|
 
+### Scripts
+
+|Script|Description|
+|-|-|
+|[Scripts/Set-NewPassword-ByADSI](./Scripts/Set-NewPassword-ByADSI)|Change password for SamaccountName list using ADSI and Set ChangeAtLogon|
+
+
+
 ## 🔗 Links
 https://github.com/Letalys/Powershell-ADQueries-Collection
 
